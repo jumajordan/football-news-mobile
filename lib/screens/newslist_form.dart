@@ -163,7 +163,21 @@ class _NewsFormPageState extends State<NewsFormPage> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
-                              title: const Text('Berita berhasil disimpan!'),
+                              title: const Text('Berita berhasil tersimpan'),
+                              content: SingleChildScrollView(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Judul: $_title'),
+                                    Text('Isi: $_content'),
+                                    Text('Kategori: $_category'),
+                                    Text('Thumbnail: $_thumbnail'),
+                                    Text(
+                                      'Unggulan: ${_isFeatured ? "Ya" : "Tidak"}',
+                                    ),
+                                  ],
+                                ),
+                              ),
                               actions: [
                                 TextButton(
                                   child: const Text('OK'),
@@ -179,7 +193,7 @@ class _NewsFormPageState extends State<NewsFormPage> {
                       }
                     },
                     child: const Text(
-                      "Simpan",
+                      "Save",
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
